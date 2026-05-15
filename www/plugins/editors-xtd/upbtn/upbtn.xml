@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="5.0" type="plugin" method="upgrade" group="editors-xtd">
+    <name>PLG_EDITORXTD_UP</name>
+    <author>lomart</author>
+    <creationDate>2025-11-25</creationDate>
+    <firstCreationDate>Nov 2021</firstCreationDate>
+    <copyright>2025 Lomart. All rights reserved.</copyright>
+    <license>GPL</license>
+    <authorEmail>lomart@lomart.fr</authorEmail>
+    <authorUrl>lomart.fr</authorUrl>
+    <version>5.4.1</version>
+    <description>PLG_EDITORXTD_UP_DESC</description>
+    <namespace path="src">Lomart\Plugin\EditorsXtd\Upbtn</namespace>
+    <files>
+        <folder plugin="upbtn">services</folder>
+        <folder>src</folder>
+        <filename>index.html</filename>
+        <filename>upbtn-16.svg</filename>
+        <filename>upbtn-32.svg</filename>
+        <filename>changelog.md</filename>
+    </files>
+    <languages>
+		<language tag="fr-FR">language/fr-FR/plg_editors-xtd_upbtn.ini</language>
+		<language tag="fr-FR">language/fr-FR/plg_editors-xtd_upbtn.sys.ini</language>
+		<language tag="en-GB">language/en-GB/plg_editors-xtd_upbtn.ini</language>
+		<language tag="en-GB">language/en-GB/plg_editors-xtd_upbtn.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic"	addfieldprefix="Lomart\Plugin\EditorsXtd\Upbtn\Field">
+                <field name="version" type="version" extension="upbtn" margintop="-3em"/>
+            </fieldset>
+		</fields>
+	</config>
+    
+	<fields name="params">
+	</fields>
+    <!-- Update servers -->
+    <updateservers>
+        <server type="extension" priority="1" name="UP - Editor button">https://raw.githubusercontent.com/conseilgouz/updates_github/master/plg_editor-xtd_upbtn_update.xml</server>
+    </updateservers>
+</extension>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="5.0" type="plugin" group="content" method="upgrade">
+    <name>Content - UP</name>
+    <author>LOMART</author>
+    <creationDate>2026-04-20</creationDate>
+    <copyright>Copyright (c) 2026 LOMART. All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorUrl>lomart.fr</authorUrl>
+	<authorEmail>lomart@lomart.fr</authorEmail>
+    <version>6.0.20</version>
+    <description>PLG_CONTENT_UP_DESC</description>
+	<namespace path="src">Lomart\Plugin\Content\Up</namespace>
+    <files>
+        <folder plugin="up">services</folder>
+        <folder>src</folder>
+        <folder>actions</folder>
+        <filename>up.xml</filename>
+        <filename>upAction.php</filename>
+        <filename>changelog.md</filename>
+        <filename>dico.ini</filename>
+        <filename>dico.json</filename>
+        <folder>services</folder>
+        <folder>assets</folder>
+        <folder>actions</folder>
+        <folder>language</folder>
+        <folder>upbtn</folder>
+        <folder>layouts</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic" addfieldprefix="Lomart\Plugin\Content\Up\Field">
+                <field name="version" type="Version"  marginright="1em" margintop="-5em" extension="plugin/up"/>
+                <field
+                    name="actionprefsnote"
+                    type="note"
+                    description="UP_ACTIONPREF_NOTE"
+                />
+                <field
+                    name="actionprefs"
+                    type="textarea"
+                    default=""
+                    label="UP_ACTIONPREF_LABEL"
+                    description="UP_ACTIONPREF_DESC"
+                    rows="10"
+                    cols="40"
+                />
+                <field
+                    name="tagname"
+                    type="text"
+                    default="up"
+                    label="UP_TAG_LABEL"
+                    description="UP_TAG_DESC"
+                    size="4"
+                />
+                <field name="loadcss"
+                       type="radio"
+                       class="btn-group"
+                       default="1"
+                       label="UP_CSS_LABEL"
+                       description="UP_CSS_DESC" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="notemq" type="note" showon="loadcss:1"
+                label="UP_BREAK_NOTE" description="UP_BREAK_NOTE_DESC"/>
+                <field name="breaks" showon="loadcss:1"
+                       type="number"
+                       default="480"
+                       label="UP_BREAKS_LABEL"
+                       description="UP_BREAKS_DESC" >
+                </field>
+                <field name="breaksl" showon="loadcss:1"
+                       type="number"
+                       default=""
+                       label="UP_BREAKSL_LABEL"
+                       description="UP_BREAKSL_DESC" >
+                </field>
+                <field name="breakm" showon="loadcss:1"
+                       type="number"
+                       default="760"
+                       label="UP_BREAKM_LABEL"
+                       description="UP_BREAKM_DESC" >
+                </field>
+                <field name="breakl" showon="loadcss:1"
+                       type="number"
+                       default=""
+                       label="UP_BREAKL_LABEL"
+                       description="UP_BREAKL_DESC" >
+                </field>
+                <field name="breakxl" showon="loadcss:1"
+                       type="number"
+                       default=""
+                       label="UP_BREAKXL_LABEL"
+                       description="UP_BREAKXL_DESC" >
+                </field>
+                <field name="compile" type="compile" showon="loadcss:1"/>
+                <field name="usehelpsite"
+                       type="radio"
+                       class="btn-group"
+                       default="2"
+                       label="UP_USEHELPSITE_LABEL"
+                       description="UP_USEHELPSITE_DESC" >
+                    <option value="0">JNO</option>
+                    <option value="1">SELF</option>
+                    <option value="2">BLANK</option>
+                </field>
+                <field
+                    name="urlhelpsite"
+                    type="text"
+                    default="https://up.lomart.fr"
+                    label="UP_URLHELPSITE_LABEL"
+                    description="UP_URLHELPSITE_DESC"
+                    size="4"
+                />
+                <field name="tarteaucitron"
+                       type="radio"
+                       class="btn-group"
+                       default="0"
+                       label="UP_TAC_LABEL"
+                       description="UP_TAC_DESC" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+				<field
+                    name="searchActionMaskedContent"
+                    type="text"
+                    default="filter|note"
+                    label="UP_SAMC_LABEL"
+                    description="UP_SAMC_DESC"
+                    size="4"
+                />
+				<field
+					name="trimA0"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="UP_SUPERTRIM_LABEL"
+					description="UP_SUPERTRIM_DESC" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field 
+					name="inprod"
+					type="radio"
+                    class="btn-group"
+                    default="1"
+                    label="UP_MSGMODE_LABEL"
+                    description="UP_MSGMODE_DESC" >
+                    <option value="0">MSG_DEVMODE</option>
+                    <option value="1">MSG_PRODMODE</option>
+                </field>
+				<field
+                    name="cssmsg"
+                    type="text"
+                    default="color:red;background:yellow;font-weight:bolder"
+                    label="UP_MSGCSS_LABEL"
+                    description="UP_MSGCSS_DESC"
+                    size="4"
+                />
+				<field
+					name="checkgithub"
+					type="radio"
+					class="btn-group"
+					default="0"
+					label="UP_CHECKGITHUB_LABEL"
+					description="UP_CHECKGITHUB_DESC" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+    <!-- Script lors update -->
+        <scriptfile>install.php</scriptfile>
+    <!-- Update servers -->
+    <updateservers>
+        <server type="extension" priority="1" name="UP - Universal Plugin">https://raw.githubusercontent.com/conseilgouz/updates_github/master/plg_content_up_update.xml</server>
+    </updateservers>
+</extension>
